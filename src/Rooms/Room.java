@@ -10,7 +10,10 @@ public class Room {
     {
         xLoc = x;
         yLoc = y;
+        this.occupant = null;
     }
+
+
 
     /**
      * Method controls the results when a person enters this room.
