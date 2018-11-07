@@ -1,5 +1,6 @@
 package Game;
 import Rooms.Room;
+import People.Person;
 
 public class Board {
    Room[][] map;
@@ -19,13 +20,21 @@ public class Board {
        map[row][col] = room;
    }
 
-   public void printBoard()
+   public void printBoard(Person player)
    {
        for(Room[] i : map)
        {
            for (Room j : i)
            {
-               System.out.print("[]");
+               if (player.getxLoc() == j.getxLoc() && player.getyLoc() == j.getyLoc())
+               {
+                   System.out.print("[P]");
+               }
+               else
+               {
+
+                   System.out.print("[-]");
+               }
            }
            System.out.println();
        }

@@ -9,20 +9,18 @@ public class Runner {
     private static boolean gameOn = true;
 
     public static void main(String[] args) {
-        Room[][] room = new Room[5][5];
+        Room[][] room = new Room[10][10];
 
         Board building = new Board(room);
-        for (int x = 0; x<room.length; x++)
-        {
-            for (int y = 0; y < room[x].length; y++)
-            {
-                room[x][y] = new Room(x,y);
+        for (int x = 0; x<room.length; x++) {
+            for (int y = 0; y < room[x].length; y++) {
+                room[x][y] = new Room(x, y);
             }
         }
-        building.printBoard();
 
-        Person player1 = new Person("FirstName", "FamilyName", 0,0);
+        Person player1 = new Person("FirstName", "FamilyName", 0,0,10,95,5);
         room[0][0].enterRoom(player1);
+        building.printBoard(player1);
         Scanner in = new Scanner(System.in);
 
         while(gameOn)
@@ -31,6 +29,7 @@ public class Runner {
             String move = in.nextLine();
             if(validMove(move, player1, room))
             {
+                building.printBoard(player1);
                 System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
 
             }

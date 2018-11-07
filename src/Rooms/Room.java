@@ -10,9 +10,12 @@ public class Room {
     {
         xLoc = x;
         yLoc = y;
-        this.occupant = null;
     }
 
+    public int getxLoc() { return xLoc; }
+    public int getyLoc() {
+        return yLoc;
+    }
 
 
     /**
