@@ -19,7 +19,7 @@ public class Runner {
             }
         }
 
-        Person player1 = new Person("FirstName", "FamilyName", 0,0,100,95,5);
+        Person player1 = new Person("FirstName", "FamilyName", 0,0,100,95,3);
         room[0][0].enterRoom(player1);
         building.printBoard(player1);
         Scanner in = new Scanner(System.in);
