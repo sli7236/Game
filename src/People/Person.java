@@ -9,13 +9,7 @@ public class Person {
     int xLoc, yLoc;
     int health;
     int GPA;
-    int wealth;
-
-
-    public int health() { return health;}
-    public int GPA(){ return GPA; }
-    public int wealth(){ return wealth; }
-
+    double wealth;
 
     public int getxLoc() { return xLoc; }
 
@@ -43,18 +37,18 @@ public class Person {
     }
 
 
-    public int health(int i) {
+    public int setHealth(int i) {
         health += i;
         return health;
     }
 
-    public int GPA(int i)
+    public int setGPA(int i)
     {
         GPA += i;
         return GPA;
     }
 
-    public int wealth(int i)
+    public double setWealth(double i)
     {
         wealth += i;
         return wealth;

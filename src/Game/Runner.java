@@ -1,6 +1,7 @@
 package Game;
 import People.Person;
 import Rooms.Room;
+import Rooms.Hallway;
 
 import java.util.Scanner;
 
@@ -18,7 +19,7 @@ public class Runner {
             }
         }
 
-        Person player1 = new Person("FirstName", "FamilyName", 0,0,10,95,5);
+        Person player1 = new Person("FirstName", "FamilyName", 0,0,100,95,5);
         room[0][0].enterRoom(player1);
         building.printBoard(player1);
         Scanner in = new Scanner(System.in);
@@ -30,7 +31,8 @@ public class Runner {
             if(validMove(move, player1, room))
             {
                 building.printBoard(player1);
-                System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
+                player1.setHealth(-1);
+                //System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
 
             }
             else {

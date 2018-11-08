@@ -6,12 +6,12 @@ public class Money {
     int x = (int)(Math.random() * 20);
     public void action(Person p)
     {
-        p.health(5);
-        p.GPA(0);
-        p.wealth(x);
+        p.setHealth(5);
+        p.setGPA(0);
+        p.setWealth(x);
     }
     public String getName()
     {
-        return "apple";
+        return "$"+x;
     }
 }

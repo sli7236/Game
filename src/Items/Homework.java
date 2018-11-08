@@ -4,8 +4,9 @@ import People.Person;
 public class Homework implements Item{
     public void action(Person p)
     {
-        p.health(2);
-        p.GPA(1);
+        p.setHealth(0);
+        p.setGPA(1);
+        p.setWealth(0);
     }
     public String getName()
     {

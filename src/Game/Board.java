@@ -1,14 +1,20 @@
 package Game;
 import Rooms.Room;
+import Rooms.Hallway;
+import Rooms.Cafeteria;
+import Rooms.Library;
+import Rooms.APCSA;
 import People.Person;
 
 public class Board {
    Room[][] map;
+   Hallway[][] hallway;
+   Cafeteria[][] cafeteria;
+   Library[][] library;
+   APCSA[][] apcsa;
 
-   public Board(Room[][] map)
-   {
-       this.map = map;
-   }
+
+   public Board(Room[][] map) { this.map = map; }
 
    public Board(int height, int width)
    {
