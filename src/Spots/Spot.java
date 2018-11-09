@@ -1,12 +1,12 @@
-package Rooms;
+package Spots;
 
 import People.Person;
 
-public class Hallway {
+public class Spot {
     Person occupant;
     int xLoc,yLoc;
 
-    public Hallway(int x, int y)
+    public Spot(int x, int y)
     {
         xLoc = x;
         yLoc = y;
@@ -24,7 +24,7 @@ public class Hallway {
      */
     public void enterRoom(Person x)
     {
-        System.out.println("You are in the hallway.");
+        //System.out.println("You enter a plain old room");
         occupant = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);

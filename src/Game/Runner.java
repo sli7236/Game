@@ -1,7 +1,6 @@
 package Game;
 import People.Person;
-import Rooms.Room;
-import Rooms.Hallway;
+import Spots.Spot;
 
 import java.util.Scanner;
 
@@ -10,17 +9,17 @@ public class Runner {
     private static boolean gameOn = true;
 
     public static void main(String[] args) {
-        Room[][] room = new Room[10][10];
+        Spot[][] spot = new Spot[10][10];
 
-        Board building = new Board(room);
-        for (int x = 0; x<room.length; x++) {
-            for (int y = 0; y < room[x].length; y++) {
-                room[x][y] = new Room(x, y);
+        Board building = new Board(spot);
+        for (int x = 0; x< spot.length; x++) {
+            for (int y = 0; y < spot[x].length; y++) {
+                spot[x][y] = new Spot(x, y);
             }
         }
 
         Person player1 = new Person("FirstName", "FamilyName", 0,0,100,95,3);
-        room[0][0].enterRoom(player1);
+        spot[0][0].enterRoom(player1);
         building.printBoard(player1);
         Scanner in = new Scanner(System.in);
 
@@ -28,7 +27,7 @@ public class Runner {
         {
             System.out.println("Where would you like to move? (Choose N, S, E, W)");
             String move = in.nextLine();
-            if(validMove(move, player1, room))
+            if(validMove(move, player1, spot))
             {
                 building.printBoard(player1);
                 player1.setHealth(-1);
@@ -46,7 +45,7 @@ public class Runner {
 
 
 
-    public static boolean validMove(String move, Person p, Room[][] map)
+    public static boolean validMove(String move, Person p, Spot[][] map)
     {
         move = move.toLowerCase().trim();
         switch (move) {
