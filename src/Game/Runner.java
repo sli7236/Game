@@ -76,11 +76,6 @@ public class Runner {
 
             }
             else {
-                if (player1.getHealth() <=0)
-                {
-                    System.out.println("You ran out of health!");
-                }
-                gameOff();
                 System.out.println("Please choose a valid move.");
             }
 
