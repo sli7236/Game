@@ -8,7 +8,7 @@ public class Homework implements Item{
         p.setGPA(1);
         p.setWealth(0);
     }
-    public String getName()
+    public String getDesc()
     {
         return "homework";
     }

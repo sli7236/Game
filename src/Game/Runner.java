@@ -1,6 +1,6 @@
 package Game;
 import People.Person;
-import Spots.Spot;
+import Rooms.*;
 
 import java.util.Scanner;
 
@@ -9,32 +9,78 @@ public class Runner {
     private static boolean gameOn = true;
 
     public static void main(String[] args) {
-        Spot[][] spot = new Spot[10][10];
+        Hallway[][] hallway = new Hallway[10][10];
 
-        Board building = new Board(spot);
-        for (int x = 0; x< spot.length; x++) {
-            for (int y = 0; y < spot[x].length; y++) {
-                spot[x][y] = new Spot(x, y);
+        Board building = new Board(hallway);
+        for (int x = 0; x< hallway.length; x++) {
+            for (int y = 0; y < hallway[x].length; y++) {
+                hallway[x][y] = new Hallway(x, y);
             }
         }
 
         Person player1 = new Person("FirstName", "FamilyName", 0,0,100,95,3);
-        spot[0][0].enterRoom(player1);
-        building.printBoard(player1);
-        Scanner in = new Scanner(System.in);
 
-        while(gameOn)
+        //Create cafeteria
+        int x = 5;
+        int y = 5;
+        hallway[x][y] = new Cafeteria(x, y);
+
+        //Create library
+        x = 6;
+        y = 7;
+        hallway[x][y] = new Library(x, y);
+
+        //Create APCSA room
+        x = 3;
+        y = 1;
+        hallway[x][y] = new APCSA(x, y);
+
+        //Create random room with chips
+        x = (int)(Math.random()*hallway.length);
+        y = (int)(Math.random()*hallway.length);
+        hallway[x][y] = new Chips(x, y);
+
+        //Create random room with an apple
+        x = (int)(Math.random()*hallway.length);
+        y = (int)(Math.random()*hallway.length);
+        hallway[x][y] = new Apple(x, y);
+
+        //Create random room with cookies
+        x = (int)(Math.random()*hallway.length);
+        y = (int)(Math.random()*hallway.length);
+        hallway[x][y] = new Cookies(x, y);
+
+        Scanner in = new Scanner(System.in);
+        hallway[0][0].enterRoom(player1);
+        building.printBoard(player1);
+
+        while(gameOn && player1.getHealth() > 0 )
         {
             System.out.println("Where would you like to move? (Choose N, S, E, W)");
             String move = in.nextLine();
-            if(validMove(move, player1, spot))
+            if(validMove(move, player1, hallway))
             {
                 building.printBoard(player1);
-                player1.setHealth(-1);
+                player1.setHealth(-10);
+                System.out.print("Health: " + player1.getHealth() + ", ");
+                System.out.print("GPA: " + player1.getGPA() + ", ");
+                System.out.print("Wealth: $" + player1.getWealth() + " ");
+                System.out.println();
+                if (player1.getHealth() <=0)
+                {
+                    System.out.println("You ran out of health!");
+                    gameOff();
+                }
+
                 //System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
 
             }
             else {
+                if (player1.getHealth() <=0)
+                {
+                    System.out.println("You ran out of health!");
+                }
+                gameOff();
                 System.out.println("Please choose a valid move.");
             }
 
@@ -45,7 +91,7 @@ public class Runner {
 
 
 
-    public static boolean validMove(String move, Person p, Spot[][] map)
+    public static boolean validMove(String move, Person p, Hallway[][] map)
     {
         move = move.toLowerCase().trim();
         switch (move) {

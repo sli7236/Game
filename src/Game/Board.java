@@ -1,27 +1,27 @@
 package Game;
-import Spots.Spot;
+import Rooms.Hallway;
 import People.Person;
 
-public abstract class Board {
-   Spot[][] map;
+public class Board {
+   Hallway[][] map;
 
-   public Board(Spot[][] map) { this.map = map; }
+   public Board(Hallway[][] map) { this.map = map; }
 
    public Board(int height, int width)
    {
        this.map = map;
    }
 
-   public void addRoom(Spot spot, int row, int col)
+   public void addRoom(Hallway hallway, int row, int col)
    {
-       map[row][col] = spot;
+       map[row][col] = hallway;
    }
 
    public void printBoard(Person player)
    {
-       for(Spot[] i : map)
+       for(Hallway[] i : map)
        {
-           for (Spot j : i)
+           for (Hallway j : i)
            {
                if (player.getxLoc() == j.getxLoc() && player.getyLoc() == j.getyLoc())
                {

@@ -42,15 +42,27 @@ public class Person {
         return health;
     }
 
+    public int getHealth() {
+        return health;
+    }
+
     public int setGPA(int i)
     {
         GPA += i;
         return GPA;
     }
 
+    public int getGPA() {
+        return GPA;
+    }
+
     public double setWealth(double i)
     {
         wealth += i;
+        return wealth;
+    }
+
+    public double getWealth() {
         return wealth;
     }
 }
