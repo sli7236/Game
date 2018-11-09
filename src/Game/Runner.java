@@ -61,7 +61,7 @@ public class Runner {
             if(validMove(move, player1, hallway))
             {
                 building.printBoard(player1);
-                player1.setHealth(-10);
+                player1.setHealth(-5);
                 System.out.print("Health: " + player1.getHealth() + ", ");
                 System.out.print("GPA: " + player1.getGPA() + ", ");
                 System.out.print("Wealth: $" + player1.getWealth() + " ");
