@@ -3,21 +3,10 @@ package Rooms;
 import People.Person;
 
 public class Library extends Hallway {
-    Person occupant;
-    int xLoc,yLoc;
-
     public Library(int x, int y)
     {
         super(x, y);
-        xLoc = x;
-        yLoc = y;
     }
-
-    public int getxLoc() { return xLoc; }
-    public int getyLoc() {
-        return yLoc;
-    }
-
 
     /**
      * Method controls the results when a person enters this room.

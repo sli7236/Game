@@ -13,9 +13,7 @@ public class Hallway {
     }
 
     public int getxLoc() { return xLoc; }
-    public int getyLoc() {
-        return yLoc;
-    }
+    public int getyLoc() { return yLoc; }
 
 
     /**

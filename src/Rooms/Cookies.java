@@ -3,21 +3,23 @@ import Items.Item;
 import People.Person;
 
 public class Cookies extends Hallway implements Item {
-    Person occupant;
-    int xLoc,yLoc;
 
     public Cookies(int x, int y)
     {
         super(x, y);
-        xLoc = x;
-        yLoc = y;
     }
 
-    public int getxLoc() { return xLoc; }
-    public int getyLoc() {
-        return yLoc;
+    public void action(Person p)
+    {
+        p.setHealth(10);
+        p.setGPA(0);
+        p.setWealth(0);
     }
 
+    public String getDesc()
+    {
+        return "You find cookies in a room and eat them.";
+    }
 
     /**
      * Method controls the results when a person enters this room.
@@ -29,7 +31,7 @@ public class Cookies extends Hallway implements Item {
         occupant = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
-        System.out.println("You enter the AP Computer Science A room.");
+        System.out.println(getDesc());
     }
 
     /**
@@ -41,14 +43,5 @@ public class Cookies extends Hallway implements Item {
         occupant = null;
     }
 
-    public void action(Person p)
-    {
-        p.setHealth(5);
-        p.setGPA(0);
-        p.setWealth(0);
-    }
-    public String getDesc()
-    {
-        return "cookies";
-    }
+
 }

@@ -1,23 +1,12 @@
 package Rooms;
-
 import People.Person;
 
 public class Cafeteria extends Hallway {
-    Person occupant;
-    int xLoc,yLoc;
 
     public Cafeteria(int x, int y)
     {
         super(x, y);
-        xLoc = x;
-        yLoc = y;
     }
-
-    public int getxLoc() { return xLoc; }
-    public int getyLoc() {
-        return yLoc;
-    }
-
 
     /**
      * Method controls the results when a person enters this room.
@@ -25,11 +14,11 @@ public class Cafeteria extends Hallway {
      */
     @Override
     public void enterRoom(Person x) {
-
+        System.out.println("You enter the cafeteria.");
         occupant = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
-        System.out.println("You enter the cafeteria.");
+
     }
 
     /**
@@ -38,6 +27,7 @@ public class Cafeteria extends Hallway {
      */
     public void leaveRoom(Person x)
     {
+        occupant = x;
         occupant = null;
     }
 }

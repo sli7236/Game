@@ -21,23 +21,17 @@ public class Runner {
         Person player1 = new Person("FirstName", "FamilyName", 0,0,100,95,3);
 
         //Create cafeteria
-        int x = 5;
-        int y = 5;
-        hallway[x][y] = new Cafeteria(x, y);
+        hallway[5][5] = new Cafeteria(5, 5);
 
         //Create library
-        x = 6;
-        y = 7;
-        hallway[x][y] = new Library(x, y);
+        hallway[6][7] = new Library(6, 7);
 
         //Create APCSA room
-        x = 3;
-        y = 1;
-        hallway[x][y] = new APCSA(x, y);
+        hallway[3][1] = new APCSA(3, 1);
 
         //Create random room with chips
-        x = (int)(Math.random()*hallway.length);
-        y = (int)(Math.random()*hallway.length);
+        int x = (int)(Math.random()*hallway.length);
+        int y = (int)(Math.random()*hallway.length);
         hallway[x][y] = new Chips(x, y);
 
         //Create random room with an apple
