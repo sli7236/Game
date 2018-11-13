@@ -1,5 +1,4 @@
 package People;
-
 /**
  * Person represents the player as they move through the game.
  */
@@ -25,6 +24,32 @@ public class Person {
         this.yLoc = yLoc;
     }
 
+    public void setHealth(int i) {
+        this.health += i;
+    }
+
+    public int getHealth() {
+        return this.health;
+    }
+
+    public void setGPA(int i)
+    {
+        this.GPA += i;
+    }
+
+    public int getGPA() {
+        return this.GPA;
+    }
+
+    public void setWealth(double i)
+    {
+        this.wealth += i;
+    }
+
+    public double getWealth() {
+        return this.wealth;
+    }
+
     public Person (String firstName, String familyName, int xLoc, int yLoc, int health, int GPA, int wealth)
     {
         this.firstName = firstName;
@@ -34,35 +59,5 @@ public class Person {
         this.health = health;
         this.GPA = GPA;
         this.wealth = wealth;
-    }
-
-
-    public int setHealth(int i) {
-        health += i;
-        return health;
-    }
-
-    public int getHealth() {
-        return health;
-    }
-
-    public int setGPA(int i)
-    {
-        GPA += i;
-        return GPA;
-    }
-
-    public int getGPA() {
-        return GPA;
-    }
-
-    public double setWealth(double i)
-    {
-        wealth += i;
-        return wealth;
-    }
-
-    public double getWealth() {
-        return wealth;
     }
 }

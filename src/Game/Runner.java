@@ -18,7 +18,7 @@ public class Runner {
             }
         }
 
-        Person player1 = new Person("FirstName", "FamilyName", 0,0,100,95,3);
+        Person p = new Person("FirstName", "FamilyName", 0,0,100,95,3);
 
         //Create cafeteria
         hallway[5][5] = new Cafeteria(5, 5);
@@ -44,29 +44,39 @@ public class Runner {
         y = (int)(Math.random()*hallway.length);
         hallway[x][y] = new Cookies(x, y);
 
-        Scanner in = new Scanner(System.in);
-        hallway[0][0].enterRoom(player1);
-        building.printBoard(player1);
+        //Create random room with a book
+        x = (int)(Math.random()*hallway.length);
+        y = (int)(Math.random()*hallway.length);
+        hallway[x][y] = new Book(x, y);
 
-        while(gameOn && player1.getHealth() > 0 )
+        //Create WinningRoom
+        x = (int)(Math.random()*hallway.length);
+        y = (int)(Math.random()*hallway.length);
+        hallway[x][y] = new WinningRoom(x, y);
+
+        Scanner in = new Scanner(System.in);
+        hallway[0][0].enterRoom(p);
+        building.printBoard(p);
+
+        while(gameOn && p.getHealth() > 0 )
         {
             System.out.println("Where would you like to move? (Choose N, S, E, W)");
             String move = in.nextLine();
-            if(validMove(move, player1, hallway))
+            if(validMove(move, p, hallway))
             {
-                building.printBoard(player1);
-                player1.setHealth(-5);
-                System.out.print("Health: " + player1.getHealth() + ", ");
-                System.out.print("GPA: " + player1.getGPA() + ", ");
-                System.out.print("Wealth: $" + player1.getWealth() + " ");
+                building.printBoard(p);
+                p.setHealth(-5);
+                System.out.print("Health: " + p.getHealth() + ", ");
+                System.out.print("GPA: " + p.getGPA() + ", ");
+                System.out.print("Wealth: $" + p.getWealth() + " ");
                 System.out.println();
-                if (player1.getHealth() <=0)
+                if (p.getHealth() <=0)
                 {
                     System.out.println("You ran out of health!");
                     gameOff();
                 }
 
-                //System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
+                System.out.println("Your coordinates: row = " + p.getxLoc() + " col = " + p.getyLoc());
 
             }
             else {

@@ -1,12 +1,25 @@
 package Rooms;
 
 import People.Person;
+import Items.Item;
 
-public class APCSA extends Hallway {
+public class APCSA extends Hallway implements Item {
 
     public APCSA(int x, int y)
     {
         super(x, y);
+    }
+
+    public void action(Person p)
+    {
+        p.setHealth(-20);
+        p.setGPA(3);
+        p.setWealth(0);
+    }
+
+    public String getDesc()
+    {
+        return "You enter the AP Computer Science Room. You ace your test and increase your GPA, but your health decreases because taking the test made you tired.";
     }
 
     /**
@@ -19,7 +32,7 @@ public class APCSA extends Hallway {
         occupant = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
-        System.out.println("You enter the AP Computer Science A room.");
+        System.out.println(getDesc());
     }
 
     /**

@@ -1,25 +1,22 @@
 package Rooms;
-import Game.Runner;
 import Items.Item;
 import People.Person;
 
-public class Chips extends Hallway implements Item{
-
-    public Chips(int x, int y)
+public class Book extends Hallway implements Item {
+    public Book(int x, int y)
     {
         super(x, y);
     }
 
     public void action(Person p)
     {
-        p.setHealth(30);
-        p.setGPA(0);
+        p.setHealth(-10);
+        p.setGPA(2);
         p.setWealth(0);
     }
-
     public String getDesc()
     {
-        return "You find chips in a room and eat them.";
+        return "You find a book and read it. Your GPA increases, but your health decreases because reading made you tired.";
     }
 
     /**
@@ -43,6 +40,4 @@ public class Chips extends Hallway implements Item{
     {
         occupant = null;
     }
-
-
 }

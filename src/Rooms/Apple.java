@@ -11,7 +11,7 @@ public class Apple extends Hallway implements Item {
 
     public void action(Person p)
     {
-        p.setHealth(20);
+        p.setHealth(35);
         p.setGPA(0);
         p.setWealth(0);
     }

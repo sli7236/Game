@@ -1,25 +1,11 @@
 package Rooms;
-import Game.Runner;
-import Items.Item;
 import People.Person;
+import Game.Runner;
 
-public class Chips extends Hallway implements Item{
-
-    public Chips(int x, int y)
+public class WinningRoom extends Hallway {
+    public WinningRoom(int x, int y)
     {
         super(x, y);
-    }
-
-    public void action(Person p)
-    {
-        p.setHealth(30);
-        p.setGPA(0);
-        p.setWealth(0);
-    }
-
-    public String getDesc()
-    {
-        return "You find chips in a room and eat them.";
     }
 
     /**
@@ -32,7 +18,8 @@ public class Chips extends Hallway implements Item{
         occupant = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
-        System.out.println(getDesc());
+        System.out.println("You go through a magical room and escape from Brooklyn Tech!");
+        Runner.gameOff();
     }
 
     /**
@@ -43,6 +30,4 @@ public class Chips extends Hallway implements Item{
     {
         occupant = null;
     }
-
-
 }

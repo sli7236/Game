@@ -11,7 +11,7 @@ public class Cookies extends Hallway implements Item {
 
     public void action(Person p)
     {
-        p.setHealth(10);
+        p.setHealth(20);
         p.setGPA(0);
         p.setWealth(0);
     }
