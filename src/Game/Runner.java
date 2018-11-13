@@ -1,6 +1,7 @@
 package Game;
 import People.Person;
 import Rooms.*;
+import Items.Item;
 
 import java.util.Scanner;
 
@@ -18,7 +19,13 @@ public class Runner {
             }
         }
 
-        Person p = new Person("FirstName", "FamilyName", 0,0,100,95,3);
+        Scanner in = new Scanner(System.in);
+        System.out.println("What is your first name?");
+        String first = in.nextLine();
+        System.out.println("What is your last name?");
+        String family = in.nextLine();
+        System.out.println("Hi " + first + " " + family + ". Your objective is to escape Brooklyn Tech. Each time you move, your health decreases by 5 (because school slowly kills you). Good luck!");
+        Person p = new Person(first, family, 0, 0, 100, 95, 3);
 
         //Create cafeteria
         hallway[5][5] = new Cafeteria(5, 5);
@@ -49,12 +56,26 @@ public class Runner {
         y = (int)(Math.random()*hallway.length);
         hallway[x][y] = new Book(x, y);
 
-        //Create WinningRoom
+        //Create 1st WinningRoom
         x = (int)(Math.random()*hallway.length);
         y = (int)(Math.random()*hallway.length);
         hallway[x][y] = new WinningRoom(x, y);
 
-        Scanner in = new Scanner(System.in);
+        //Create 2nd WinningRoom
+        x = (int)(Math.random()*hallway.length);
+        y = (int)(Math.random()*hallway.length);
+        hallway[x][y] = new WinningRoom(x, y);
+
+        //Create 3rd WinningRoom
+        x = (int)(Math.random()*hallway.length);
+        y = (int)(Math.random()*hallway.length);
+        hallway[x][y] = new WinningRoom(x, y);
+
+        //Create 4th WinningRoom
+        x = (int)(Math.random()*hallway.length);
+        y = (int)(Math.random()*hallway.length);
+        hallway[x][y] = new WinningRoom(x, y);
+
         hallway[0][0].enterRoom(p);
         building.printBoard(p);
 
@@ -65,6 +86,7 @@ public class Runner {
             if(validMove(move, p, hallway))
             {
                 building.printBoard(p);
+                System.out.println("Your coordinates: row = " + p.getxLoc() + " col = " + p.getyLoc());
                 p.setHealth(-5);
                 System.out.print("Health: " + p.getHealth() + ", ");
                 System.out.print("GPA: " + p.getGPA() + ", ");
@@ -76,7 +98,7 @@ public class Runner {
                     gameOff();
                 }
 
-                System.out.println("Your coordinates: row = " + p.getxLoc() + " col = " + p.getyLoc());
+
 
             }
             else {
